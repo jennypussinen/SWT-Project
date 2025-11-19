@@ -1,4 +1,10 @@
 // defaultTo.test.js
+// Note: After reading the design document done in phase 1 and comparing it to the 
+// implementation of defaultTo.js, we can see that there has been some kind of
+// brainfart in the assumption that only number values are valid inputs.
+// However, these testcases are still implemented based on the design document,
+// so the assumption is that number values are only valid values.
+
 import { expect } from 'chai';
 import defaultTo from '../src/defaultTo.js';
 
