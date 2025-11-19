@@ -1,0 +1,26 @@
+{
+  "name": "swt-project",
+  "version": "1.0.0",
+  "description": "This is a project for the course comp.se.200 Software Testing",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest --coverage",
+    "coverage": "jest --coverage && cat ./coverage/lcov.info | coveralls"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jennypussinen/SWT-Project.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/jennypussinen/SWT-Project/issues"
+  },
+  "homepage": "https://github.com/jennypussinen/SWT-Project#readme",
+  "devDependencies": {
+    "coveralls": "^3.1.1",
+    "jest": "^30.2.0"
+  }
+}
