@@ -69,6 +69,8 @@ describe('defaultTo(input, fallback): Self-designed tests without AI (Phase 1 pl
         });
     });
 
+    // Not defined hot the program defines, but assumed that NaN, null and undefined are
+    // invalid fallback values
     describe('Input and fallback is invalid (invalid)', function() {
         it('should throw an error when both param1 and param2 are NaN', function() {
             expect(() => defaultTo(NaN, NaN)).to.throw(); // TC-DT-6
