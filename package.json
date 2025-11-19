@@ -3,8 +3,9 @@
   "version": "1.0.0",
   "description": "This is a project for the course comp.se.200 Software Testing",
   "main": "index.js",
+  "type": "module",
   "scripts": {
-    "test": "mocha \"tests/*.test.js\""
+    "test": "mocha tests/*.test.js"
   },
   "repository": {
     "type": "git",
@@ -13,7 +14,6 @@
   "keywords": [],
   "author": "",
   "license": "MIT",
-  "type": "commonjs",
   "bugs": {
     "url": "https://github.com/jennypussinen/SWT-Project/issues"
   },
