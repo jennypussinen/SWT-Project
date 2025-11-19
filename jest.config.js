@@ -1,6 +1,6 @@
 module.exports = {
   testEnvironment: "node",
   coveragePathIgnorePatterns: [
-    "<rootDir>/.internal/"
+    "<rootDir>/src/.internal/"
   ]
 };
