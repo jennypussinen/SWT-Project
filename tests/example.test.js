@@ -1,7 +1,8 @@
 const { add } = require("../src/example");
+const { expect } = require('chai');
 
-describe("Example test", () => {
-  test("adds numbers correctly", () => {
-    expect(add(2, 3)).toBe(5);
+describe('Example test', () => {
+  it('adds numbers correctly', () => {
+    expect(add(2, 3)).to.equal(5);
   });
 });
