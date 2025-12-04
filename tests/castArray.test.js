@@ -1,5 +1,6 @@
-// jenny
 // castArray.test.js
+// Jenny
+// AI USE: copilot for formatting and test generation, and also to explain how the test object code works.
 import { expect } from 'chai';
 import castArray from '../src/castArray.js';
 
