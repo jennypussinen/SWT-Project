@@ -1,6 +1,7 @@
 # SWT-Project
 This is a project for the course comp.se.200 Software Testing
 
+[![Coverage Status](https://coveralls.io/repos/github/jennypussinen/SWT-Project/badge.svg?branch=main)](https://coveralls.io/github/jennypussinen/SWT-Project?branch=main)
 ## Installation
  *This documentation was generated using copilot.*
 
