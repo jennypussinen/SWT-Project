@@ -1,6 +1,3 @@
-<<<<<<< Updated upstream
-// Salli
-=======
 import { expect } from 'chai';
 import capitalize from '../src/capitalize.js';
 
@@ -64,5 +61,3 @@ describe('Detailed test cases using AI (Phase 1 plan): capitalize.js', () => {
 
     });
 });
-
->>>>>>> Stashed changes
