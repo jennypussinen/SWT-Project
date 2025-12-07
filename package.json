@@ -5,7 +5,9 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
-    "test": "mocha tests/*.test.js"
+    "test": "mocha tests/*.test.js",
+    "test:coverage": "c8 mocha tests/*.test.js",
+    "coverage": "c8 --reporter=lcov --reporter=text mocha tests/*.test.js"
   },
   "repository": {
     "type": "git",
@@ -19,9 +21,21 @@
   },
   "homepage": "https://github.com/jennypussinen/SWT-Project#readme",
   "devDependencies": {
+    "c8": "^8.0.1",
     "chai": "^4.3.7",
     "coveralls": "^3.1.1",
-    "jest": "^30.2.0",
     "mocha": "^10.2.0"
+  },
+  "c8": {
+    "exclude": [
+      "**/.internal/**",
+      "**/node_modules/**",
+      "**/tests/**",
+      "**/coverage/**"
+    ],
+    "reporter": [
+      "text",
+      "lcov"
+    ]
   }
 }
