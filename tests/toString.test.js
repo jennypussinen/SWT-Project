@@ -4,9 +4,9 @@
 import { expect } from 'chai';
 import toString from '../src/toString.js';
 
-describe('toString(value): ', function() {
-    // Positive test cases
-    describe('1. Positive Test Cases', function() {
+describe('toString(value) ', function() {
+    
+    describe('Converting different data types to strings', function() {
 
         describe('String values should return as-is', function() {
             it('should return same string when input is already a string', function() {
@@ -18,7 +18,7 @@ describe('toString(value): ', function() {
             });
         });
         
-        describe('Null and undefined should return empty string', function() {
+        describe('should return empty string', function() {
             it('should return empty string when input is null', function() {
                 expect(toString(null)).to.equal('');
             });
@@ -50,11 +50,17 @@ describe('toString(value): ', function() {
             it('should return empty string when input is empty array', function() {
                 expect(toString([])).to.equal('');
             });
+            
+            it('should handle arrays with null and undefined values', function() {
+                expect(toString([1, null, 3])).to.equal('1,,3');
+                expect(toString([null, undefined, null])).to.equal(',,');
+                expect(toString([1, undefined, 3])).to.equal('1,,3');
+            });
+            
+            it('should handle nested arrays with null values', function() {
+                expect(toString([[1, null], [null, 2]])).to.equal('1,,2');
+            });
         });
-    });
-    
-    // Negative test cases
-    describe('2. Negative Test Cases', function() {
         
         describe('Boolean values should be converted to strings', function() {
             it('should return "true" when input is boolean true', function() {
@@ -69,6 +75,25 @@ describe('toString(value): ', function() {
         describe('Objects should be converted to strings', function() {
             it('should return "[object Object]" when input is plain object', function() {
                 expect(toString({ 'a': 1 })).to.equal('[object Object]');
+            });
+        });
+        
+        describe('Symbols should use Symbol.prototype.toString', function() {
+            it('should convert Symbol to string representation', function() {
+                const sym = Symbol('test');
+                const result = toString(sym);
+                expect(result).to.equal('Symbol(test)');
+            });
+            
+            it('should handle Symbol without description', function() {
+                const sym = Symbol();
+                const result = toString(sym);
+                expect(result).to.equal('Symbol()');
+            });
+            
+            it('should handle well-known Symbols', function() {
+                const result = toString(Symbol.iterator);
+                expect(result).to.equal('Symbol(Symbol.iterator)');
             });
         });
     });
