@@ -29,13 +29,7 @@ jobs:
     
     - name: Run tests with coverage
       run: npm run coverage
-      continue-on-error: false
-    
-    - name: Check coverage threshold (80%)
-      run: |
-        npx c8 check-coverage --lines 80 --branches 80 --functions 80 --statements 80 --exclude='src/.internal/**' --exclude='src/material/**'
       continue-on-error: true
-      if: matrix.node-version == '20.x'
     
     - name: Generate coverage report
       run: |
@@ -44,7 +38,13 @@ jobs:
         echo "Quality Gate: 80% minimum coverage required" >> $GITHUB_STEP_SUMMARY
         echo "" >> $GITHUB_STEP_SUMMARY
         npx c8 report --reporter=text --exclude='src/.internal/**' --exclude='src/material/**' >> $GITHUB_STEP_SUMMARY
-      if: matrix.node-version == '20.x'
+      if: always() && matrix.node-version == '20.x'
+    
+    - name: Check coverage threshold (80%)
+      run: |
+        npx c8 check-coverage --lines 80 --branches 80 --functions 80 --statements 80 --exclude='src/.internal/**' --exclude='src/material/**'
+      continue-on-error: true
+      if: always() && matrix.node-version == '20.x'
     
     - name: Upload coverage to Coveralls
       uses: coverallsapp/github-action@v2
