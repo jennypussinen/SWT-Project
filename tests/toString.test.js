@@ -58,7 +58,7 @@ describe('toString(value) ', function() {
             });
             
             it('should handle nested arrays with null values', function() {
-                expect(toString([[1, null], [null, 2]])).to.equal('1,,2');
+                expect(toString([[1, null], [null, 2]])).to.equal('1,,,2');
             });
         });
         

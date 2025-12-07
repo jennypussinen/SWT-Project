@@ -38,64 +38,63 @@ describe('defaultTo(value, defaultValue): Manual test cases', function () {
         expect(defaultTo(3 + 5, 10)).to.equal(8); // TC-DT-20
       });
     });
+  });
+  describe('Invalid inputs (NaN, null & undefined) return defaultValue', function () {
 
-    describe('Invalid inputs (NaN, null & undefined) return defaultValue', function () {
-
-      it('should return defaultValue 10 when value is NaN', function () {
-        expect(defaultTo(NaN, 10)).to.equal(10); // TC-DT-1
-      });
-
-      it('should return defaultValue 10 when value is null', function () {
-        expect(defaultTo(null, 10)).to.equal(10); // TC-DT-2
-      });
-
-      it('should return defaultValue 10 when value is undefined', function () {
-        expect(defaultTo(undefined, 10)).to.equal(10); // TC-DT-3
-      });
+    it('should return defaultValue 10 when value is NaN', function () {
+      expect(defaultTo(NaN, 10)).to.equal(10); // TC-DT-1
     });
 
-    describe('Non-numerical values should return defaultValue', function () {
-      // NOTE: Implementation documentation does not specify that non-numerical values
-      // are not accepted. However, the test documentation has the incorrect assumption
-      // that non-numerical values are not valid values. These tests follow the assumption
-      // of the test documentaion.
-      // FIX: The test documentation or the implementation should be fixed.
-      // If these tests pass, the implementation has been fixed.
-
-      it('should return defaultValue 10 when value is empty string ""', function () {
-        expect(defaultTo("", 10)).to.equal(10); // TC-DT-7
-      });
-
-      it('should return defaultValue 10 when value is string "3"', function () {
-        expect(defaultTo("3", 10)).to.equal(10); // TC-DT-8
-      });
-
-      it('should return defaultValue 10 when value is boolean value true', function () {
-        expect(defaultTo(true, 10)).to.equal(10); // TC-DT-9
-      });
-
-      it('should return defaultValue 10 when value is boolean value false', function () {
-        expect(defaultTo(false, 10)).to.equal(10); // TC-DT-10
-      });
-
-      it('should return defaultValue 1 when value is array [1, 2, 3]', function () {
-        expect(defaultTo([1, 2, 3], 1)).to.equal(1); // TC-DT-14
-      });
+    it('should return defaultValue 10 when value is null', function () {
+      expect(defaultTo(null, 10)).to.equal(10); // TC-DT-2
     });
 
-    describe('Valid defaultValues', function () {
-      
-      it('should return defaultValue -1 when value is null', function () {
-        expect(defaultTo(null, -1)).to.equal(-1); // TC-DT-15
-      });
+    it('should return defaultValue 10 when value is undefined', function () {
+      expect(defaultTo(undefined, 10)).to.equal(10); // TC-DT-3
+    });
+  });
 
-      it('should return defaultValue 0 when value is null', function () {
-        expect(defaultTo(null, 0)).to.equal(0); // TC-DT-16
-      });
+  describe('Non-numerical values should return defaultValue', function () {
+    // NOTE: Implementation documentation does not specify that non-numerical values
+    // are not accepted. However, the test documentation has the incorrect assumption
+    // that non-numerical values are not valid values. These tests follow the assumption
+    // of the test documentaion.
+    // FIX: The test documentation or the implementation should be fixed.
+    // If these tests pass, the implementation has been fixed.
 
-      it('should return defaultValue 10 when defaultValue is 5+5 and value is null', function () {
-        expect(defaultTo(null, 5 + 5)).to.equal(10); // TC-DT-21
-      });
+    it('should return defaultValue 10 when value is empty string ""', function () {
+      expect(defaultTo("", 10)).to.equal(10); // TC-DT-7
+    });
+
+    it('should return defaultValue 10 when value is string "3"', function () {
+      expect(defaultTo("3", 10)).to.equal(10); // TC-DT-8
+    });
+
+    it('should return defaultValue 10 when value is boolean value true', function () {
+      expect(defaultTo(true, 10)).to.equal(10); // TC-DT-9
+    });
+
+    it('should return defaultValue 10 when value is boolean value false', function () {
+      expect(defaultTo(false, 10)).to.equal(10); // TC-DT-10
+    });
+
+    it('should return defaultValue 1 when value is array [1, 2, 3]', function () {
+      expect(defaultTo([1, 2, 3], 1)).to.equal(1); // TC-DT-14
+    });
+  });
+
+  describe('Valid defaultValues', function () {
+
+    it('should return defaultValue -1 when value is null', function () {
+      expect(defaultTo(null, -1)).to.equal(-1); // TC-DT-15
+    });
+
+    it('should return defaultValue 0 when value is null', function () {
+      expect(defaultTo(null, 0)).to.equal(0); // TC-DT-16
+    });
+
+    it('should return defaultValue 10 when defaultValue is 5+5 and value is null', function () {
+      expect(defaultTo(null, 5 + 5)).to.equal(10); // TC-DT-21
     });
   });
 
@@ -113,7 +112,6 @@ describe('defaultTo(value, defaultValue): Manual test cases', function () {
       expect(() => defaultTo(null, [1, 2, 3])).to.throw(); // TC-DT-13
     });
   });
-  });
 
   describe('Both parameters invalid', function () {
 
@@ -128,8 +126,8 @@ describe('defaultTo(value, defaultValue): Manual test cases', function () {
     it('should throw an error when bot value and defaultValues are undefined', function () {
       expect(() => defaultTo(undefined, undefined)).to.throw(); // TC-DT-23
     });
+  });
 });
-
 
 
 // CLAUDE GENERATED TESTS: used two prompts, after which the code has been copy pasted here 

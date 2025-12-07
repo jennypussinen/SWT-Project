@@ -57,9 +57,7 @@ describe('castArray(value)', function() {
         
         describe('Producer fills in product price into form field', function() {
             it('should normalize single price or price array for consistent processing', function() {
-                // Single price gets wrapped
                 expect(castArray(15.99)).to.deep.equal([15.99]);
-                // Price array stays as-is
                 const priceTiers = [10.99, 15.99, 19.99];
                 expect(castArray(priceTiers)).to.equal(priceTiers);
             });
@@ -72,9 +70,7 @@ describe('castArray(value)', function() {
         
         describe('Producer fills in product categories into form field', function() {
             it('should normalize category input to array format', function() {
-                // Single string category
                 expect(castArray('Organic')).to.deep.equal(['Organic']);
-                // Multiple categories already as array
                 const categories = ['Organic', 'Vegetables', 'Local'];
                 expect(castArray(categories)).to.equal(categories);
             });
@@ -82,11 +78,9 @@ describe('castArray(value)', function() {
         
         describe('Producer opens a new form', function() {
             it('should normalize form initialization data', function() {
-                // Single product template
                 const template = { name: '', price: 0, categories: [], inStock: true };
                 expect(castArray(template)).to.deep.equal([template]);
                 
-                // Bulk products already as array
                 const bulkProducts = [
                     { name: 'Organic Apples', price: 4.99 },
                     { name: 'Fresh Milk', price: 3.50 }
