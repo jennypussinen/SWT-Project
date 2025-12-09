@@ -27,6 +27,18 @@
     "mocha": "^10.2.0"
   },
   "c8": {
+    "include": [
+      "src/capitalize.js",
+      "src/castArray.js",
+      "src/defaultTo.js",
+      "src/get.js",
+      "src/isEmpty.js",
+      "src/isObject.js",
+      "src/map.js",
+      "src/reduce.js",
+      "src/toNumber.js",
+      "src/toString.js"
+    ],
     "exclude": [
       "**/.internal/**",
       "**/node_modules/**",
